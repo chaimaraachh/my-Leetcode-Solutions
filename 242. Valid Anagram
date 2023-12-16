@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (!(s.empty() && t.empty())) {
+            if (s.length() == t.length()) {
+                bool v = true;
+                int i = 0;
+
+                while (v && (i < s.length())) {
+                    size_t found = t.find(s[i]);
+
+                    if (found != std::string::npos) {
+                        t[found] = '0';
+                        i = i + 1;
+                    } else {
+                        v = false;
+                    }
+                }
+
+                return v;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+};
