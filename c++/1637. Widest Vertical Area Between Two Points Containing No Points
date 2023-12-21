@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int maxWidthOfVerticalArea(std::vector<std::vector<int>>& points) {
+        if (!points.empty()) {
+            vector<int> v(points.size());
+
+            for (int i = 0; i < points.size(); i++) {
+                v[i] = points[i][0];
+            }
+
+            sort(v.begin(), v.end());
+
+            int max = 0;
+            for (int i = 0; i < points.size() - 1; i++) {
+                if ((v[i + 1] - v[i]) > max) {
+                    max = v[i + 1] - v[i];
+                }
+            }
+
+            return max;
+        } else {
+            return 0;
+        }
+    }
+};
