@@ -1,0 +1,17 @@
+class Solution(object):
+    def maxScore(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if s:
+            max_score = 0
+            for i in range(len(s) - 1):
+                left = s[:i + 1]
+                right = s[i + 1:]
+                score = left.count("0") + right.count("1")
+                if max_score < score:
+                    max_score = score
+            return max_score
+        else:
+            return 0
